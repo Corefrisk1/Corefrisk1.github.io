@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engin Ballı İçin Web Sitesi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            position: relative;
+            min-height: 100vh;
+        }
+        header {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .main-image {
+            max-width: 90%;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+        .content {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: fixed;
+            bottom: 80px; /* Butonları footer'ın üstüne yerleştirmek için boşluk */
+        }
+        .button-container.left {
+            left: 20px;
+        }
+        .button-container.right {
+            right: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .content p {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="background-color: red; color: white; padding: 10px; display: inline-block;">
+            Engin Ballı İçin Yaptığım Web Sitesi
+        </div>
+    </header>
+
+    <div class="content" id="home">
+        <img class="main-image" src="MainF.jpg" alt="Ana Fotoğraf">
+        <p id="description">maintype</p>
+    </div>
+
+    <div class="button-container left">
+        <button class="button" onclick="showSection('section1')">Kolay Matematik</button>
+    </div>
+
+    <div class="button-container right">
+        <button class="button" onclick="showSection('section2')">Bilgilenme</button>
+        <button class="button" onclick="showSection('section3')">Geliştiriciler</button>
+    </div>
+
+    <div class="content hidden" id="section1">
+        <button class="back-button" onclick="goBack()">Geri</button>
+        <img src="Buttom1F.jpg" alt="Tuş 1 Fotoğrafı">
+        <h2>Bottom1Başlık</h2>
+        <p>Bottom1metin</p>
+    </div>
+
+    <div class="content hidden" id="section2">
+        <button class="back-button" onclick="goBack()">Geri</button>
+        <img src="Bottom2F.jpg" alt="Tuş 2 Fotoğrafı">
+        <h2>Engin Ballı</h2>
+        <p>Bottom2metin</p>
+    </div>
+
+    <div class="content hidden" id="section3">
+        <button class="back-button" onclick="goBack()">Geri</button>
+        <h2>Bottom3metin</h2>
+        <h3>Bottom3metin2</h3>
+        <p>bottom3metinA</p>
+    </div>
+
+    <footer>
+        <p>© 2024 Tüm Hakları Saklıdır</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content').forEach((section) => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.querySelectorAll('.content').forEach((section) => {
+                section.classList.add('hidden');
+            });
+            document.getElementById('home').classList.remove('hidden');
+        }
+    </script>
+
+</body></html>
